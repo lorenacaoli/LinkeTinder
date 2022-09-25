@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkeTinder - Lorena</title>
+
+    <style>
+        .tela {
+            width: 100%;
+            height: 100%;
+        }
+
+        .botoes, .cadastro, .visualizar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        .cadastro {
+            flex-direction: column;
+        }
+
+        .botao {
+            background-color: #eb6e22;
+            margin: 10px 20px;
+            padding: 5px 10px;
+            text-align: center;
+            border-radius: 10px;
+            width: 250px;
+            border: 1px solid #eb6e22;
+        }
+
+        .botao:hover {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .hidde {
+            display: none;
+        }
+
+        .campos {
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tela">
+        <h1 style="text-align:center;">LinkeTinder</h1>
+        <div class="botoes" id="botoes">
+            <div class="botao" onclick="cadastrar('cadastro-candidato')">
+                <h2>Cadastrar Candidato</h2>
+            </div>
+            <div class="botao" onclick="cadastrar('cadastro-empresa')">
+                <h2>Cadastrar Empresa</h2>
+            </div>
+            <div class="botao" onclick="listar('candidato')">
+                <h2>Visualizar Candidatos</h2>
+            </div>
+            <div class="botao" onclick="listar('empresa')">
+                <h2>Visualizar Empresas</h2>
+            </div>
+        </div>
+        <div class="cadastro-candidato hidde cadastro" id="cadastro-candidato">
+            <div class="campos">
+                <label>Nome</label>
+                <input id="nome-candidato" class="input"/>
+            </div>  
+            <div class="campos">
+                <label>E-mail</label>
+                <input id="email-candidato" class="input"/>
+            </div>
+            <div class="campos">
+                <label>CPF</label>
+                <input id="cpf-candidato" class="input"/>
+            </div>
+            <div class="campos">
+                <label>Idade</label>
+                <input id="idade-candidato" class="input"/>
+            </div>
+            <div class="campos">
+                <label>Estado</label>
+                <input id="estado-candidato" class="input"/>
+            </div>
+            <div class="campos">
+                <label>CEP</label>
+                <input id="cep-candidato" class="input"/>
+            </div>
+            <div class="campos">
+                <label>Descrição Pessoal</label>
+                <textarea id="descricao-candidato" class="input">
+                </textarea>
+            </div>
+            <div class="campos">
+                <label>Competências</label>
+                <input name="competencias" placeholder="Enter para adicionar" onkeypress="preencherLista(event, this)" class="input"/>
+                <ul class="lista" name="competencias-candidato">
+
+                </ul>
+            </div>
+
+            <button onclick="salvar('cadastro-candidato')">Salvar</button>
+        </div>
+        <div class="cadastro-empresa hidde cadastro" id="cadastro-empresa">
+            <div class="campos">
+                <label>Nome</label>
+                <input id="nome-empresa" class="input"/>
+            </div>
+            <div class="campos">
+                <label>E-mail</label>
+                <input id="email-empresa" class="input"/>
+            </div>
+            <div class="campos">
+                <label>CNPJ</label>
+                <input id="cnpj-empresa" class="input"/>
+            </div>
+            <div class="campos">
+                <label>País</label>
+                <input id="pais-empresa" class="input"/>
+            </div>
+            <div class="campos">
+                <label>Estado</label>
+                <input id="estado-empresa" class="input"/>
+            </div>
+            <div class="campos">
+                <label>CEP</label>
+                <input id="cep-empresa" class="input"/>
+            </div>
+            <div class="campos">
+                <label>Descrição</label>
+                <textarea id="descricao-empresa" class="input">
+                </textarea>
+            </div>
+            <div class="campos">
+                <label>Competências</label>
+                <input name="competencias" placeholder="Enter para adicionar" onkeypress="preencherLista(event, this)" class="input"/>
+                <ul class="lista" name="competencias-empresa">
+
+                </ul>
+            </div>
+            <button onclick="salvar('cadastro-empresa')">Salvar</button>
+        </div>
+        <div class="visualizar hidde" id="visualizar">
+            <table id="tabela">
+                <thead>
+                    <td>Nome</td>
+                    <td>Competência</td>
+                </thead>
+                <tbody id="tbody">
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>
